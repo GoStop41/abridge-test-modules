@@ -17,7 +17,7 @@ locals {
 
 data "aws_iam_policy_document" "default" {
   statement {
-    sid    = "Enable IAM User Permissions"
+    sid    = "Enable IAM User Admin Permissions"
     effect = "Allow"
     principals {
       type        = "AWS"
@@ -28,7 +28,19 @@ data "aws_iam_policy_document" "default" {
       "kms:Decrypt",
       "kms:ReEncrypt*",
       "kms:GenerateDataKey",
-      "kms:DescribeKey"
+      "kms:DescribeKey",
+      "kms:Create*",
+      "kms:Describe*",
+      "kms:Enable*",
+      "kms:List*",
+      "kms:Put*",
+      "kms:Update*",
+      "kms:Revoke*",
+      "kms:Disable*",
+      "kms:Get*",
+      "kms:Delete*",
+      "kms:ScheduleKeyDeletion",
+      "kms:CancelKeyDeletion"
     ]
     resources = ["*"]
   }
